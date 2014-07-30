@@ -1,0 +1,14 @@
+﻿@model IEnumerable<FSCSTestApp.Data.Access.EntityModel.Question>
+@{
+    ViewBag.Title = "FAQ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>FAQ</h2>
+<div class="faq-block">
+    @foreach (var question in Model)
+    {
+        <p>@question.QuestionText</p>
+        <p>@question.Answers.FirstOrDefault().AnswerText</p>
+    } 
+</div>

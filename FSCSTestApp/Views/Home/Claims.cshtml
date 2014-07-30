@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Claims";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Claims</h2>
+<div class="left-div">
+    
+    <h4>Content for Claims</h4>
+    
+    <p>
+        EpsilonVPN Communique
+    </p><p>
+            Epsilon Communique Solution allows you to communicate in real-time with a multi group of people over an ultra secure network - AES 256 bit File Transfers allows encryption of any file types: Image, Video, word, excel etc. An enhanced Winforms client interface with multi-threading giving short response times.
+
+        </p>
+    <p>
+        It provides all the basic functionality of Skype/MSN Messenger, however detracts from those applications by allowing a secure Virtual Private Network communication that can't be hacked into from outside the communicating group of individuals. It uses AES 256 bit, TripleDES, RSA (512 bit, 1024 bit, 2048 bit and 4096 bit) according to user preference.
+
+    </p>
+</div>
+<div class="right-div-faq-block">
+    @{ Html.RenderAction("FaqBlock", "Home", new {@pageTitle = ViewBag.Title}); }
+</div>

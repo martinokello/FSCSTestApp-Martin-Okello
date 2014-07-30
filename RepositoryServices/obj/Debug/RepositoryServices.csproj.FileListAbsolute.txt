@@ -1,0 +1,9 @@
+C:\C#Projects\FSCSTestApp\RepositoryServices\bin\Debug\RepositoryServices.dll
+C:\C#Projects\FSCSTestApp\RepositoryServices\bin\Debug\RepositoryServices.pdb
+C:\C#Projects\FSCSTestApp\RepositoryServices\bin\Debug\FSCSTestApp.Data.Access.dll
+C:\C#Projects\FSCSTestApp\RepositoryServices\bin\Debug\EntityFramework.dll
+C:\C#Projects\FSCSTestApp\RepositoryServices\bin\Debug\FSCSTestApp.Data.Access.pdb
+C:\C#Projects\FSCSTestApp\RepositoryServices\bin\Debug\EntityFramework.xml
+C:\C#Projects\FSCSTestApp\RepositoryServices\obj\Debug\RepositoryServices.csprojResolveAssemblyReference.cache
+C:\C#Projects\FSCSTestApp\RepositoryServices\obj\Debug\RepositoryServices.dll
+C:\C#Projects\FSCSTestApp\RepositoryServices\obj\Debug\RepositoryServices.pdb

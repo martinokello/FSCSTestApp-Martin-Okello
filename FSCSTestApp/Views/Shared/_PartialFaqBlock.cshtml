@@ -1,0 +1,9 @@
+﻿@model IEnumerable<FSCSTestApp.Data.Access.EntityModel.Question>
+           
+<div>
+    @foreach (var question in Model)
+    {
+        <p>@question.QuestionText</p>
+        <p>@question.Answers.FirstOrDefault().AnswerText</p>
+    }
+</div>

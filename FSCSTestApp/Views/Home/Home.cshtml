@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Home</h2>
+<div class="left-div">
+    <h4>Home Content</h4>
+    <p>TauElastica 2.0
+    </p><p>
+            This software is for Structural Engineering professionals, used to design High rise structures.
+        </p>
+    <p>
+        It is used to model high rise structures, and analyses bending moments, shear force distributions and rotations and displacements of relative structural joints depending on a defined structure.
+    </p>
+    <p>
+        Printing facilities, and Views have been integrated: this software is geared towards professional structure engineers.
+    </p>
+    <p>
+        FEM (finite element analysis methods of modelling structures) is key as a Civil/Structural Engineering Software. Also example Solutions included in product - in the directory ProblemSolutions where they can be loaded from the installation directory. Capability for Database SQL Server Express and Oracle10g XE incorporated Plus any ADO.NET DBs. This allows Steel properties to be persisted in DB and acquired from DB. All you need is a properties table in your DB with the steel properties as columns. You should also set a primary key (propertyNumber) in DB.
+    </p></div>
+<div class="right-div-faq-block">
+    @{ Html.RenderAction("FaqBlock", "Home", new {@pageTitle = ViewBag.Title}); }
+</div>

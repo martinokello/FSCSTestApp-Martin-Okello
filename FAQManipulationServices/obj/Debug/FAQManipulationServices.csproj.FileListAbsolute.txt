@@ -1,0 +1,9 @@
+C:\C#Projects\FSCSTestApp\FAQManipulationServices\bin\Debug\FAQManipulationServices.dll
+C:\C#Projects\FSCSTestApp\FAQManipulationServices\bin\Debug\FAQManipulationServices.pdb
+C:\C#Projects\FSCSTestApp\FAQManipulationServices\bin\Debug\FSCSTestApp.Data.Access.dll
+C:\C#Projects\FSCSTestApp\FAQManipulationServices\bin\Debug\EntityFramework.dll
+C:\C#Projects\FSCSTestApp\FAQManipulationServices\bin\Debug\FSCSTestApp.Data.Access.pdb
+C:\C#Projects\FSCSTestApp\FAQManipulationServices\bin\Debug\EntityFramework.xml
+C:\C#Projects\FSCSTestApp\FAQManipulationServices\obj\Debug\FAQManipulationServices.csprojResolveAssemblyReference.cache
+C:\C#Projects\FSCSTestApp\FAQManipulationServices\obj\Debug\FAQManipulationServices.dll
+C:\C#Projects\FSCSTestApp\FAQManipulationServices\obj\Debug\FAQManipulationServices.pdb
