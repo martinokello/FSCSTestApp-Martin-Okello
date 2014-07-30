@@ -13,12 +13,17 @@ namespace RepositoryServices.Services
     {
         private QuestionRepository _questionRepository;
 
+        public QuestionRepositoryServices()
+        {
+            
+        }
+
         public QuestionRepositoryServices(IUnitOfWork unitOfWork)
         {
             _questionRepository = new QuestionRepository(unitOfWork);
         }
 
-        public IEnumerable<Question> GetAllFaqQuestions()
+        public virtual IEnumerable<Question> GetAllFaqQuestions()
         {
             return _questionRepository.GetAll();
         }

@@ -60,5 +60,11 @@ namespace FSCSTestApp.Controllers
             get { return _faqManipulationServices; }
             set { _faqManipulationServices = value; }
         }
+
+        public QuestionRepositoryServices QuestionRepositoryServices
+        {
+            get { return _questionRepositoryServices; }
+            set { _questionRepositoryServices = value; }
+        }
     }
 }

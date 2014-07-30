@@ -1,29 +1,29 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 using FAQManipulationServices.FAQManipulation;
 using FSCSTestApp.Controllers;
 using FSCSTestApp.Data.Access.EntityModel;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using FAQManipulationServices.FAQManipulation.Interfaces;
+using RepositoryServices.Services;
 
 namespace FSCSTestApp.Tests
 {
     [TestClass]
-    public class FAQManipulationServicesTest
+    public class QuestionRepositoryServicesTest
     {
         private HomeController _controller;
-        private Mock<FaqManipulation> _faqManipulationSerices;
-        private Question[] _randomResults;
+        private Mock<QuestionRepositoryServices> _questionRepositoryServices;
         private Question[] _resultSet;
 
         [TestInitialize]
         public void StartUp()
         {
-            var _faqManipulationSerices = new Mock<FaqManipulation>();
+            _questionRepositoryServices = new Mock<QuestionRepositoryServices>();
 
             var q1 = new Question { PageId = 1, QuestionText = "Q1: Home Page" };
             var q2 = new Question { PageId = 1, QuestionText = "Q2: Home Page" };
@@ -37,40 +37,21 @@ namespace FSCSTestApp.Tests
             var q21 = new Question { PageId = 3, QuestionText = "Q1: coverage Page" };
             var q22 = new Question { PageId = 3, QuestionText = "Q2: coverage Page" };
             var q23 = new Question { PageId = 3, QuestionText = "Q3: coverage Page" };
-             _resultSet = new Question[] {q1, q2, q3, q11, q12, q13, q21, q22, q23};
-            var randomResults = _resultSet.Where(p => p.PageId == 2);
+            _resultSet = new Question[] { q1, q2, q3, q11, q12, q13, q21, q22, q23 };
 
-            _faqManipulationSerices.Setup(p => p.SelectRandomFaq(It.IsAny<string>())).Returns(randomResults);
-            
             _controller = new HomeController();
 
-            _controller.FaqManipulation = _faqManipulationSerices.Object;
 
         }
         [TestMethod]
-        public void Test_HomeController_FAQ_Action_Returns_Correct_Result()
+        public void Test_HomeController_FAQ_Action_Returns_Correct_Model_Count()
         {
-            var result = _controller.FaqBlock() as PartialViewResult;
+            _questionRepositoryServices.Setup(p => p.GetAllFaqQuestions()).Returns(_resultSet);
+            _controller.QuestionRepositoryServices = _questionRepositoryServices.Object;
 
-            Assert.AreEqual(result.ViewName, "_PartialFaqBlock");
-        }
-
-        [TestMethod]
-        public void Test_HomeController_FAQ_Action_Returns_Correct_Model()
-        {
-            var result = _controller.FaqBlock();
-
-            Assert.IsNotNull(result.Model);
-        }
-
-        [TestMethod]
-        public void Test_HomeController_FAQBlock_Action_Returns_Correct_Model_Count()
-        {
-            var result = _controller.FaqBlock();
+            var result = _controller.FAQ() as ViewResult;
             var model = result.Model as IEnumerable<Question>;
-            Assert.AreEqual(model.Count(), 3);
+            Assert.AreEqual(model.Count(), 9);
         }
-
-
     }
 }

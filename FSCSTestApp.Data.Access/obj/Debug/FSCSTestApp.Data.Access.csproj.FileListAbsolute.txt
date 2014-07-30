@@ -4,3 +4,7 @@ C:\C#Projects\FSCSTestApp\FSCSTestApp.Data.Access\bin\Debug\EntityFramework.dll
 C:\C#Projects\FSCSTestApp\FSCSTestApp.Data.Access\bin\Debug\EntityFramework.xml
 C:\C#Projects\FSCSTestApp\FSCSTestApp.Data.Access\obj\Debug\FSCSTestApp.Data.Access.dll
 C:\C#Projects\FSCSTestApp\FSCSTestApp.Data.Access\obj\Debug\FSCSTestApp.Data.Access.pdb
+C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\FSCSTestApp.Data.Access\bin\Debug\FSCSTestApp.Data.Access.dll
+C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\FSCSTestApp.Data.Access\bin\Debug\FSCSTestApp.Data.Access.pdb
+C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\FSCSTestApp.Data.Access\obj\Debug\FSCSTestApp.Data.Access.dll
+C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\FSCSTestApp.Data.Access\obj\Debug\FSCSTestApp.Data.Access.pdb
