@@ -23,7 +23,7 @@ namespace FSCSTestApp.Tests
         [TestInitialize]
         public void StartUp()
         {
-            var _faqManipulationSerices = new Mock<FaqManipulation>();
+            _faqManipulationSerices = new Mock<FaqManipulation>();
 
             var q1 = new Question { PageId = 1, QuestionText = "Q1: Home Page" };
             var q2 = new Question { PageId = 1, QuestionText = "Q2: Home Page" };
@@ -71,6 +71,14 @@ namespace FSCSTestApp.Tests
             Assert.AreEqual(model.Count(), 3);
         }
 
+        [TestMethod]
+        public void Test_FAQManipulationService_Get_SelectRandomFaq()
+        {
+            _faqManipulationSerices.Setup(p => p.GetAllQuestionsForPageTitle(It.IsAny<string>())).Returns(_resultSet);
+            var result = _controller.FaqManipulation.SelectRandomFaq("Home");
 
+            Assert.AreEqual(3,result.Count());
+
+        }
     }
 }

@@ -9,4 +9,3 @@ C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\FSCSTestApp.Da
 C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\FSCSTestApp.Data.Access\obj\Debug\FSCSTestApp.Data.Access.dll
 C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\FSCSTestApp.Data.Access\obj\Debug\FSCSTestApp.Data.Access.pdb
 C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\FSCSTestApp.Data.Access\bin\Debug\EntityFramework.dll
-C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\FSCSTestApp.Data.Access\obj\Debug\FSCSTestApp.Data.Access.csprojResolveAssemblyReference.cache
