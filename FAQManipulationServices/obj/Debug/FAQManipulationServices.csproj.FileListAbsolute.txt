@@ -15,3 +15,4 @@ C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\FAQManipulatio
 C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\FAQManipulationServices\obj\Debug\FAQManipulationServices.csprojResolveAssemblyReference.cache
 C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\FAQManipulationServices\obj\Debug\FAQManipulationServices.dll
 C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\FAQManipulationServices\obj\Debug\FAQManipulationServices.pdb
+C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\FAQManipulationServices\bin\Debug\EntityFramework.xml

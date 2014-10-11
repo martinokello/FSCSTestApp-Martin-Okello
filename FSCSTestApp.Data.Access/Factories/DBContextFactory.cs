@@ -6,7 +6,6 @@ namespace FSCSTestApp.Data.Access.Factories
     public class DBContextFactory
     {
         private static FAQEntityContext _dbContext;
-        private static readonly object LockOjbect = new object();
         public static FAQEntityContext GetDbContextInstance()
         {
             _dbContext = HttpContext.Current.Application.Get("DBContextObject") != null

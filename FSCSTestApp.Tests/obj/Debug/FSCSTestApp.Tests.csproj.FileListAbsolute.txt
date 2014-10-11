@@ -101,3 +101,4 @@ C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\FSCSTestApp.Te
 C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\FSCSTestApp.Tests\obj\Debug\FSCSTestApp.Tests.csprojResolveAssemblyReference.cache
 C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\FSCSTestApp.Tests\obj\Debug\FSCSTestApp.Tests.dll
 C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\FSCSTestApp.Tests\obj\Debug\FSCSTestApp.Tests.pdb
+C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\FSCSTestApp.Tests\bin\Debug\EntityFramework.xml

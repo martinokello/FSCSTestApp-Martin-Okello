@@ -32,7 +32,10 @@
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\FSCSTestApp\lib\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -48,8 +51,14 @@
     <Compile Include="Entity.Context\FAQEntityContext.cs" />
     <Compile Include="EntityModel\Answer.cs" />
     <Compile Include="EntityModel\Question.cs" />
+    <Compile Include="EntityModel\Student.cs" />
     <Compile Include="EntityModel\UIPage.cs" />
     <Compile Include="Factories\DBContextFactory.cs" />
+    <Compile Include="Migrations\201410111314563_StudentAddColumnGrade.cs" />
+    <Compile Include="Migrations\201410111314563_StudentAddColumnGrade.Designer.cs">
+      <DependentUpon>201410111314563_StudentAddColumnGrade.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RecreateDB\MyInitializer.cs" />
     <Compile Include="Repository\Abstracts\AbstractRepository.cs" />
@@ -60,7 +69,15 @@
     <Compile Include="UnitOfWork\Concretes\UnitOfWork.cs" />
     <Compile Include="UnitOfWork\Interfaces\IUnitOfWork.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201410111314563_StudentAddColumnGrade.resx">
+      <DependentUpon>201410111314563_StudentAddColumnGrade.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

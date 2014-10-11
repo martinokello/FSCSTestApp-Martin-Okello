@@ -13,6 +13,6 @@ namespace FSCSTestApp.Data.Access.EntityModel
         public int PageId { get; set; }
         public string PageTitle { get; set; }
         public string PageUrl { get; set; }
-        public ICollection<Question> Questions { get; set; } 
+        public virtual ICollection<Question> Questions { get; set; } 
     }
 }

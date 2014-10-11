@@ -18,5 +18,15 @@ namespace FSCSTestApp.Data.Access.Entity.Context
         public DbSet<Question> Questions { get; set; }
         public DbSet<Answer> Answers { get; set; }
         public DbSet<UIPage> UIPages { get; set; }
+        public DbSet<Student> Students { get; set; }
+        protected override void OnModelCreating(DbModelBuilder modelBuilder) 
+        {
+            modelBuilder.Entity<Student>()
+            .HasRequired(c => c.Question)
+            .WithMany()
+            .WillCascadeOnDelete(false);
+            
+        } 
+
     }
 }
