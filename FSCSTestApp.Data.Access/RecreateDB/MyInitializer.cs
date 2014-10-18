@@ -73,46 +73,6 @@ namespace FSCSTestApp.Data.Access.RecreateDB
             var a23 = new Answer { AnswerText = "Ans 3: coverage Page", QuestionId = q23.QuestionId };
             context.Answers.Add(a23);
             context.SaveChanges();
-
-            var st = new Student { FirstName = "Martin", LastName = "Okello" };
-            context.Students.Add(st);
-            context.SaveChanges();
-            st = new Student { FirstName = "Leon", LastName = "Okello" };
-            context.Students.Add(st);
-            context.SaveChanges();
-            st = new Student { FirstName = "Joanne", LastName = "Okello" };
-            context.Students.Add(st);
-            context.SaveChanges();
-
-
-            var st2 = new Student { FirstName = "Angela", LastName = "Ferrer" };
-            context.Students.Add(st2);
-            context.SaveChanges();
-            st2 = new Student { FirstName = "Samuel", LastName = "Kilman" };
-            context.Students.Add(st2);
-            context.SaveChanges();
-            st2 = new Student { FirstName = "Peggy", LastName = "Layoo" };
-            context.Students.Add(st2);
-            context.SaveChanges();
-
-            var grd = new Grades { Grade = "B", QuestionId = 1, StudentId = 1 };
-            context.Grades.Add(grd);
-            grd = new Grades { Grade = "D", QuestionId = 2, StudentId = 1 };
-            context.Grades.Add(grd);
-            grd = new Grades { Grade = "D", QuestionId = 3, StudentId = 1 };
-            context.Grades.Add(grd);
-            grd = new Grades { Grade = "A", QuestionId = 1, StudentId = 2 };
-            context.Grades.Add(grd);
-            grd = new Grades { Grade = "B", QuestionId = 2, StudentId = 2 };
-            context.Grades.Add(grd);
-            grd = new Grades { Grade = "C", QuestionId = 3, StudentId = 2 };
-            context.Grades.Add(grd);
-            grd = new Grades { Grade = "D", QuestionId = 1, StudentId = 3 };
-            context.Grades.Add(grd);
-            grd = new Grades { Grade = "B", QuestionId = 2, StudentId = 3 };
-            context.Grades.Add(grd);
-            grd = new Grades { Grade = "E", QuestionId = 3, StudentId = 3 };
-            context.Grades.Add(grd);
         }
     }
 }

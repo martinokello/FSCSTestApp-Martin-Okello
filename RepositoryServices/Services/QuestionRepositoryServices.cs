@@ -27,11 +27,6 @@ namespace RepositoryServices.Services
         {
             return _questionRepository.GetAll();
         }
-
-        public IEnumerable<StudentGradePerQuestionAnswer> GetStudentGradePerQuestionAnswers(int studentId)
-        {
-            return _questionRepository.GetStudentGradePerQuestionAnswers(studentId);
-        }
     }
 
     public interface IQuestionRepositorySegregator

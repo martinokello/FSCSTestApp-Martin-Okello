@@ -4,10 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using FAQManipulationServices.FAQManipulation;
-using FSCSTestApp.Data.Access.EntityModel;
 using FSCSTestApp.Data.Access.Repository.Concretes;
 using FSCSTestApp.Data.Access.UnitOfWork.Concretes;
-using Microsoft.Ajax.Utilities;
 using RepositoryServices.Services;
 
 namespace FSCSTestApp.Controllers
@@ -51,17 +49,12 @@ namespace FSCSTestApp.Controllers
         {
             return View();
         }
-        [HttpGet]
+
         public ActionResult Index()
         {
-            return View(new List<StudentGradePerQuestionAnswer>());
+            return View();
         }
-        [HttpPost]
-        public ActionResult Index(int studentId)
-        {
-            var resultsSet = _questionRepositoryServices.GetStudentGradePerQuestionAnswers(studentId);
-            return View(resultsSet);
-        }
+
         public FaqManipulation FaqManipulation
         {
             get { return _faqManipulationServices; }

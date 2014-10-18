@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity.Infrastructure;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Web.UI;
 using FSCSTestApp.Data.Access.EntityModel;
 using FSCSTestApp.Data.Access.Factories;
 using FSCSTestApp.Data.Access.Repository.Abstracts;
@@ -65,46 +61,6 @@ namespace FSCSTestApp.Data.Access.Repository.Concretes
             return questions;
             }
             return new List<Question>();
-        }
-
-        public IEnumerable<StudentGradePerQuestionAnswer> GetStudentGradePerQuestionAnswers(int studentId)
-        {
-            var db = DBContextFactory.GetDbContextInstance().Database;
-            var cmd = db.Connection.CreateCommand();
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.CommandText = "[dbo].[GetResultsStudentGradesPerQuestion]";
-            SqlParameter parameter = new SqlParameter{ParameterName = "@studentId"};
-            parameter.Value = studentId;
-            cmd.Parameters.Add(parameter);
-            try
-            {
-                var con = cmd.Connection;
-                db.Connection.Open();
-
-                var reader = cmd.ExecuteReader();
-
-                var studentGrades = ((IObjectContextAdapter)DBContextFactory.GetDbContextInstance()).ObjectContext.Translate<Student>(reader);
-
-                foreach (var stGrade in studentGrades)
-                {
-
-                }
-                reader.NextResult();
-
-                var studentQuestionAnswerGrades =
-                    ((IObjectContextAdapter)DBContextFactory.GetDbContextInstance()).ObjectContext.Translate<StudentGradePerQuestionAnswer>(reader);
-
-                return studentQuestionAnswerGrades.ToList();
-            }
-            catch (Exception e)
-            {
-                
-            }
-            finally
-            {
-                db.Connection.Close();
-            }
-            return null;
         }
     }
 }

@@ -12,7 +12,12 @@ namespace FSCSTestApp.Data.Access.EntityModel
     {
         [Key]
         public int StudentId { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+        [ForeignKey("Question")]
+        public int QuestionId { get; set; }
+        [ForeignKey("Answer")]
+        public int AnswerId { get; set; }
+        public Question Question { get; set; }
+        public Answer Answer { get; set; }
+        public string Grade { get; set; }
     }
 }
