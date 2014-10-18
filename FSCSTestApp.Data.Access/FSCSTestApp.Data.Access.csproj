@@ -52,11 +52,16 @@
     <Compile Include="EntityModel\Answer.cs" />
     <Compile Include="EntityModel\Question.cs" />
     <Compile Include="EntityModel\Student.cs" />
+    <Compile Include="EntityModel\StudentGradePerQuestion.cs" />
     <Compile Include="EntityModel\UIPage.cs" />
     <Compile Include="Factories\DBContextFactory.cs" />
     <Compile Include="Migrations\201410111314563_StudentAddColumnGrade.cs" />
     <Compile Include="Migrations\201410111314563_StudentAddColumnGrade.Designer.cs">
       <DependentUpon>201410111314563_StudentAddColumnGrade.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201410180937129_AddGradeEntity.cs" />
+    <Compile Include="Migrations\201410180937129_AddGradeEntity.Designer.cs">
+      <DependentUpon>201410180937129_AddGradeEntity.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -76,6 +81,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201410111314563_StudentAddColumnGrade.resx">
       <DependentUpon>201410111314563_StudentAddColumnGrade.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201410180937129_AddGradeEntity.resx">
+      <DependentUpon>201410180937129_AddGradeEntity.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

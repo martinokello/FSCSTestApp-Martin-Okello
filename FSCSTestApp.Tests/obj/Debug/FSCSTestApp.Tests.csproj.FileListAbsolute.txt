@@ -59,6 +59,7 @@ C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\FSCSTestApp.Te
 C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\FSCSTestApp.Tests\bin\Debug\Microsoft.Web.Infrastructure.dll
 C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\FSCSTestApp.Tests\bin\Debug\Moq.dll
 C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\FSCSTestApp.Tests\bin\Debug\Newtonsoft.Json.dll
+C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\FSCSTestApp.Tests\bin\Debug\RepositoryServices.dll
 C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\FSCSTestApp.Tests\bin\Debug\System.Web.Helpers.dll
 C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\FSCSTestApp.Tests\bin\Debug\System.Web.Mvc.dll
 C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\FSCSTestApp.Tests\bin\Debug\System.Web.Razor.dll
@@ -71,7 +72,6 @@ C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\FSCSTestApp.Te
 C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\FSCSTestApp.Tests\bin\Debug\Owin.dll
 C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\FSCSTestApp.Tests\bin\Debug\Microsoft.AspNet.Identity.Core.dll
 C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\FSCSTestApp.Tests\bin\Debug\Microsoft.Owin.dll
-C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\FSCSTestApp.Tests\bin\Debug\RepositoryServices.dll
 C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\FSCSTestApp.Tests\bin\Debug\Microsoft.Owin.Security.Cookies.dll
 C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\FSCSTestApp.Tests\bin\Debug\Microsoft.Owin.Security.dll
 C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\FSCSTestApp.Tests\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
@@ -80,6 +80,7 @@ C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\FSCSTestApp.Te
 C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\FSCSTestApp.Tests\bin\Debug\FAQManipulationServices.pdb
 C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\FSCSTestApp.Tests\bin\Debug\FSCSTestApp.Data.Access.pdb
 C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\FSCSTestApp.Tests\bin\Debug\FSCSTestApp.pdb
+C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\FSCSTestApp.Tests\bin\Debug\RepositoryServices.pdb
 C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\FSCSTestApp.Tests\bin\Debug\Moq.xml
 C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\FSCSTestApp.Tests\bin\Debug\Newtonsoft.Json.xml
 C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\FSCSTestApp.Tests\bin\Debug\System.Web.Helpers.xml
@@ -88,11 +89,11 @@ C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\FSCSTestApp.Te
 C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\FSCSTestApp.Tests\bin\Debug\System.Web.WebPages.xml
 C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\FSCSTestApp.Tests\bin\Debug\System.Web.WebPages.Deployment.xml
 C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\FSCSTestApp.Tests\bin\Debug\System.Web.WebPages.Razor.xml
+C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\FSCSTestApp.Tests\bin\Debug\EntityFramework.xml
 C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\FSCSTestApp.Tests\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
 C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\FSCSTestApp.Tests\bin\Debug\System.Web.Optimization.xml
 C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\FSCSTestApp.Tests\bin\Debug\Microsoft.AspNet.Identity.Core.xml
 C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\FSCSTestApp.Tests\bin\Debug\Microsoft.Owin.xml
-C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\FSCSTestApp.Tests\bin\Debug\RepositoryServices.pdb
 C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\FSCSTestApp.Tests\bin\Debug\Microsoft.Owin.Security.Cookies.xml
 C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\FSCSTestApp.Tests\bin\Debug\Microsoft.Owin.Security.xml
 C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\FSCSTestApp.Tests\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
@@ -101,4 +102,3 @@ C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\FSCSTestApp.Te
 C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\FSCSTestApp.Tests\obj\Debug\FSCSTestApp.Tests.csprojResolveAssemblyReference.cache
 C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\FSCSTestApp.Tests\obj\Debug\FSCSTestApp.Tests.dll
 C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\FSCSTestApp.Tests\obj\Debug\FSCSTestApp.Tests.pdb
-C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\FSCSTestApp.Tests\bin\Debug\EntityFramework.xml
