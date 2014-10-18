@@ -1,13 +1,47 @@
-﻿
+﻿@model IEnumerable<FSCSTestApp.Data.Access.EntityModel.StudentGradePerQuestionAnswer>
 @{
     ViewBag.Title = "View1";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Index</h2>
-<div class="left-div">
+<div>
     <h4>Index</h4>
-    <p>Please Navigate using the Menu above to view all the contents of the 4 Sample Test pages.</p>
+    <div class="left-div" style="color:black;">
+        <div style="margin-left:20px;">
+            @using(Html.BeginForm())
+            {
+                @Html.Label("labelStudent","Enter the Student Id")
+                <br/>
+                @Html.TextBox("studentId")
+                <br/>
+                <hr style="width:50%; text-align: center;"/>
+                <div>
+                    <table class="table">
+                        <tr>
+                            <th>Student Name</th>
+                            <th>Question Number</th>
+                            <th>Question</th>
+                            <th>Answer</th>
+                            <th>Grade</th>
+                        </tr>@foreach (var itm in Model)
+                             {
+                                 <tr>
+                                     <td>@itm.FirstName @itm.LastName</td>
+                                     <td>@itm.QuestionId</td>
+                                     <td>@itm.QuestionText</td>
+                                     <td>@itm.AnswerText</td>
+                                     <td>@itm.Grade</td>
+                                 </tr>
+                             }
+                    </table>
+                </div>
+                <input type="submit" value="Submit"/>
+            }
+        </div>
+        <hr style="width:80%; text-align: center;"/>
+        <p>Please Navigate using the Menu above to view all the contents of the 4 Sample Test pages.</p>
+    </div>
 </div>
 <div class="right-div-faq-block">
     @{ Html.RenderAction("FaqBlock", "Home", new { @pageTitle = ViewBag.Title }); }
