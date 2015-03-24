@@ -113,6 +113,46 @@ namespace FSCSTestApp.Data.Access.RecreateDB
             context.Grades.Add(grd);
             grd = new Grades { Grade = "E", QuestionId = 3, StudentId = 3 };
             context.Grades.Add(grd);
+
+            var storedProc = @"
+            CREATE PROCEDURE [dbo].[GetResultsStudentGradesPerQuestion] 
+	            -- Add the parameters for the stored procedure here
+	            @studentId int
+            AS
+            BEGIN
+	            -- SET NOCOUNT ON added to prevent extra result sets from
+	            -- interfering with SELECT statements.
+	            SET NOCOUNT ON;
+
+                -- Insert statements for procedure here
+	            select * from Students s 
+	            where s.studentId = @studentId;
+	
+	            select s.*,q.QuestionId,q.questionText,a.answerText,g.grade
+	            from questions q inner join Answers a on q.questionId = a.questionid
+	            inner join grades g on g.questionId = q.questionId 
+	            inner join students s on s.studentId = g.studentId
+	            where s.studentId = @studentId;
+            END
+            ";
+
+            var con = context.Database.Connection;
+
+            try
+            {
+                var cmd = con.CreateCommand();
+                cmd.CommandText = storedProc;
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch
+            {
+            }
+            finally
+            {
+                con.Close();
+            }
         }
     }
 }

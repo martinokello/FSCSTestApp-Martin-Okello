@@ -16,3 +16,12 @@ C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\RepositoryServ
 C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\RepositoryServices\obj\Debug\RepositoryServices.csprojResolveAssemblyReference.cache
 C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\RepositoryServices\obj\Debug\RepositoryServices.dll
 C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\RepositoryServices\obj\Debug\RepositoryServices.pdb
+C:\GitRepositories\FSCSTestApp-Martin-Okello\RepositoryServices\bin\Debug\RepositoryServices.dll
+C:\GitRepositories\FSCSTestApp-Martin-Okello\RepositoryServices\bin\Debug\RepositoryServices.pdb
+C:\GitRepositories\FSCSTestApp-Martin-Okello\RepositoryServices\bin\Debug\FSCSTestApp.Data.Access.dll
+C:\GitRepositories\FSCSTestApp-Martin-Okello\RepositoryServices\bin\Debug\EntityFramework.dll
+C:\GitRepositories\FSCSTestApp-Martin-Okello\RepositoryServices\bin\Debug\FSCSTestApp.Data.Access.pdb
+C:\GitRepositories\FSCSTestApp-Martin-Okello\RepositoryServices\bin\Debug\EntityFramework.xml
+C:\GitRepositories\FSCSTestApp-Martin-Okello\RepositoryServices\obj\Debug\RepositoryServices.csprojResolveAssemblyReference.cache
+C:\GitRepositories\FSCSTestApp-Martin-Okello\RepositoryServices\obj\Debug\RepositoryServices.dll
+C:\GitRepositories\FSCSTestApp-Martin-Okello\RepositoryServices\obj\Debug\RepositoryServices.pdb

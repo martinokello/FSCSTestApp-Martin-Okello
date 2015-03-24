@@ -16,3 +16,15 @@ C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\FSCSTestApp.Da
 C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\FSCSTestApp.Data.Access\obj\Debug\FSCSTestApp.Data.Access.csproj.GenerateResource.Cache
 C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\FSCSTestApp.Data.Access\obj\Debug\FSCSTestApp.Data.Access.dll
 C:\C#Projects\FSCSTestApp-Martin-Okello\FSCSTestApp-Martin-Okello\FSCSTestApp.Data.Access\obj\Debug\FSCSTestApp.Data.Access.pdb
+C:\GitRepositories\FSCSTestApp-Martin-Okello\FSCSTestApp.Data.Access\bin\Debug\FSCSTestApp.Data.Access.dll.config
+C:\GitRepositories\FSCSTestApp-Martin-Okello\FSCSTestApp.Data.Access\bin\Debug\FSCSTestApp.Data.Access.dll
+C:\GitRepositories\FSCSTestApp-Martin-Okello\FSCSTestApp.Data.Access\bin\Debug\FSCSTestApp.Data.Access.pdb
+C:\GitRepositories\FSCSTestApp-Martin-Okello\FSCSTestApp.Data.Access\bin\Debug\EntityFramework.dll
+C:\GitRepositories\FSCSTestApp-Martin-Okello\FSCSTestApp.Data.Access\bin\Debug\EntityFramework.SqlServer.dll
+C:\GitRepositories\FSCSTestApp-Martin-Okello\FSCSTestApp.Data.Access\bin\Debug\EntityFramework.xml
+C:\GitRepositories\FSCSTestApp-Martin-Okello\FSCSTestApp.Data.Access\bin\Debug\EntityFramework.SqlServer.xml
+C:\GitRepositories\FSCSTestApp-Martin-Okello\FSCSTestApp.Data.Access\obj\Debug\FSCSTestApp.Data.Access.Migrations.StudentAddColumnGrade.resources
+C:\GitRepositories\FSCSTestApp-Martin-Okello\FSCSTestApp.Data.Access\obj\Debug\FSCSTestApp.Data.Access.Migrations.AddGradeEntity.resources
+C:\GitRepositories\FSCSTestApp-Martin-Okello\FSCSTestApp.Data.Access\obj\Debug\FSCSTestApp.Data.Access.csproj.GenerateResource.Cache
+C:\GitRepositories\FSCSTestApp-Martin-Okello\FSCSTestApp.Data.Access\obj\Debug\FSCSTestApp.Data.Access.dll
+C:\GitRepositories\FSCSTestApp-Martin-Okello\FSCSTestApp.Data.Access\obj\Debug\FSCSTestApp.Data.Access.pdb
