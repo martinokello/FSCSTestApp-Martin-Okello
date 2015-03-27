@@ -17,18 +17,7 @@ namespace FSCSTestApp.Data.Access.Repository.Abstracts
             return DBContextFactory.GetDbContextInstance().Set<T>().ToArray<T>();
         }
 
-        public virtual bool Add(T instance)
-        {
-            try
-            {
-                DBContextFactory.GetDbContextInstance().Set<T>().Add(instance);
-                return true;
-            }
-            catch (Exception e)
-            {
-                return false;
-            }
-        }
+        public abstract TKey Add(T instance);
 
         public abstract bool Delete(TKey key);
 

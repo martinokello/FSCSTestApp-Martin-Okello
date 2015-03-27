@@ -10,7 +10,7 @@ namespace FSCSTestApp.Data.Access.Repository.Interfaces
     {
         T GetById(TKey key);
         T[] GetAll();
-        bool Add(T instance);
+        TKey Add(T instance);
         bool Delete(TKey key);
         bool Update(T instance);
 

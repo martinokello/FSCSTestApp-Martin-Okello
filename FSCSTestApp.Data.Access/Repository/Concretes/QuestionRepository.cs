@@ -26,7 +26,12 @@ namespace FSCSTestApp.Data.Access.Repository.Concretes
         {
            return DBContextFactory.GetDbContextInstance().Questions.SingleOrDefault(p => p.QuestionId == key);
         }
-
+        public override int Add(Question instance)
+        {
+            DBContextFactory.GetDbContextInstance().Questions.Add(instance);
+            _unitOfWork.SaveChanges();
+            return instance.QuestionId;
+        }
         public override bool Delete(int key)
         {
             try
@@ -46,8 +51,17 @@ namespace FSCSTestApp.Data.Access.Repository.Concretes
         {
             try
             {
-                var entity = GetById(instance.QuestionId);
-                DBContextFactory.GetDbContextInstance().Questions.Remove(entity);
+                var entity = GetById(instance.QuestionId); 
+                if (instance.QuestionId > 0)
+                    entity.QuestionId = instance.QuestionId;
+                if (!string.IsNullOrEmpty(instance.QuestionText))
+                    entity.QuestionText = instance.QuestionText;
+                if (instance.Answers != null)
+                    entity.Answers = instance.Answers;
+                if (instance.UIPage != null)
+                    entity.UIPage = instance.UIPage;
+                if (instance.PageId > 0)
+                    entity.PageId = instance.PageId;
                 _unitOfWork.SaveChanges();
                 return true;
             }
@@ -83,9 +97,10 @@ namespace FSCSTestApp.Data.Access.Repository.Concretes
 
                 var reader = cmd.ExecuteReader();
 
-                var studentGrades = ((IObjectContextAdapter)DBContextFactory.GetDbContextInstance()).ObjectContext.Translate<Student>(reader);
+                //Two result sets: returned from reader:
+                var students = ((IObjectContextAdapter)DBContextFactory.GetDbContextInstance()).ObjectContext.Translate<Student>(reader);
 
-                foreach (var stGrade in studentGrades)
+                foreach (var st in students)
                 {
 
                 }
@@ -99,6 +114,44 @@ namespace FSCSTestApp.Data.Access.Repository.Concretes
             catch (Exception e)
             {
                 
+            }
+            finally
+            {
+                db.Connection.Close();
+            }
+            return null;
+        }
+
+        public IEnumerable<StudentGradePerQuestionAnswer> GetAllStudentGradePerQuestionAnswers()
+        {
+            var db = DBContextFactory.GetDbContextInstance().Database;
+            var cmd = db.Connection.CreateCommand();
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "[dbo].[GetAllResultsStudentGradesPerQuestion]";
+            try
+            {
+                var con = cmd.Connection;
+                db.Connection.Open();
+
+                var reader = cmd.ExecuteReader();
+
+                //Two result sets: returned from reader:
+                var students = ((IObjectContextAdapter)DBContextFactory.GetDbContextInstance()).ObjectContext.Translate<Student>(reader);
+
+                foreach (var st in students)
+                {
+
+                }
+                reader.NextResult();
+
+                var studentQuestionAnswerGrades =
+                    ((IObjectContextAdapter)DBContextFactory.GetDbContextInstance()).ObjectContext.Translate<StudentGradePerQuestionAnswer>(reader);
+
+                return studentQuestionAnswerGrades.ToList();
+            }
+            catch (Exception e)
+            {
+
             }
             finally
             {

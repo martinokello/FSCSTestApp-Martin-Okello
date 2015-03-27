@@ -22,7 +22,12 @@ namespace FSCSTestApp.Data.Access.Repository.Concretes
         {
            return DBContextFactory.GetDbContextInstance().UIPages.SingleOrDefault(p => p.PageId == key);
         }
-
+        public override int Add(UIPage instance)
+        {
+            DBContextFactory.GetDbContextInstance().UIPages.Add(instance);
+            _unitOfWork.SaveChanges();
+            return instance.PageId;
+        }
         public override bool Delete(int key)
         {
             try
@@ -43,7 +48,15 @@ namespace FSCSTestApp.Data.Access.Repository.Concretes
             try
             {
                 var entity = GetById(instance.PageId);
-                DBContextFactory.GetDbContextInstance().UIPages.Remove(entity);
+
+                if (instance.PageId > 0)
+                    entity.PageId = instance.PageId;
+                if (!string.IsNullOrEmpty(instance.PageTitle))
+                    entity.PageTitle = instance.PageTitle;
+                if (!string.IsNullOrEmpty(instance.PageUrl))
+                    entity.PageUrl = instance.PageUrl;
+                if (instance.Questions != null)
+                    entity.Questions = instance.Questions;
                 _unitOfWork.SaveChanges();
                 return true;
             }

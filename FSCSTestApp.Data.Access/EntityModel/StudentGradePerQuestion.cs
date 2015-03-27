@@ -10,7 +10,7 @@ namespace FSCSTestApp.Data.Access.EntityModel
 {
     public class StudentGradePerQuestionAnswer
     {
-        public int StudenId { get; set; }
+        public int StudentId { get; set; }
         public int QuestionId { get; set; }
         public string QuestionText { get; set; }
         public string AnswerText { get; set; }

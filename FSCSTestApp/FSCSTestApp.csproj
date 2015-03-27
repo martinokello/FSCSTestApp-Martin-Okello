@@ -169,6 +169,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\StudentsGradesViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -224,6 +225,7 @@
     <Content Include="Views\Home\Coverage.cshtml" />
     <Content Include="Views\Shared\_PartialFaqBlock.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\StudentGradePerQuestion.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

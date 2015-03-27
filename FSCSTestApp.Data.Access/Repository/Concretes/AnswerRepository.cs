@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Core;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,13 @@ namespace FSCSTestApp.Data.Access.Repository.Concretes
            return DBContextFactory.GetDbContextInstance().Answers.SingleOrDefault(p => p.AnswerId == key);
         }
 
+        public override int Add(Answer instance)
+        {
+            DBContextFactory.GetDbContextInstance().Answers.Add(instance);
+            _unitOfWork.SaveChanges();
+            return instance.AnswerId;
+        }
+
         public override bool Delete(int key)
         {
             try
@@ -43,7 +51,14 @@ namespace FSCSTestApp.Data.Access.Repository.Concretes
             try
             {
                 var entity = GetById(instance.AnswerId);
-                DBContextFactory.GetDbContextInstance().Answers.Remove(entity);
+                if(instance.QuestionId > 0)
+                entity.QuestionId = instance.QuestionId;
+                if(!string.IsNullOrEmpty(instance.AnswerText))
+                    entity.AnswerText = instance.AnswerText;
+                if(instance.Question != null)
+                entity.Question = instance.Question;
+                if (instance.QuestionId > 0)
+                    entity.QuestionId = instance.QuestionId;
                 _unitOfWork.SaveChanges();
                 return true;
             }

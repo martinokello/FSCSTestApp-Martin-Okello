@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="Services\AnswerRepositoryServices.cs" />
     <Compile Include="Services\QuestionRepositoryServices.cs" />
+    <Compile Include="Services\StudentRepositoryServices.cs" />
     <Compile Include="Services\UIPageRepositoryService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

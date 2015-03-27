@@ -9,7 +9,7 @@ using FSCSTestApp.Data.Access.EntityModel;
 
 namespace FSCSTestApp.Data.Access.RecreateDB
 {
-    public class MyInitializer : DropCreateDatabaseAlways<FAQEntityContext>
+    public class MyInitializer : DropCreateDatabaseIfModelChanges<FAQEntityContext>
     {
         protected override void Seed(FAQEntityContext context)
         {
@@ -146,12 +146,49 @@ namespace FSCSTestApp.Data.Access.RecreateDB
                 con.Open();
                 cmd.ExecuteNonQuery();
             }
-            catch
+            catch(Exception e)
             {
             }
             finally
             {
                 con.Close();
+            }
+
+            var storedProc2 = @"
+            CREATE PROCEDURE [dbo].[GetAllResultsStudentGradesPerQuestion]
+	            -- Add the parameters for the stored procedure here
+            AS
+            BEGIN
+	            -- SET NOCOUNT ON added to prevent extra result sets from
+	            -- interfering with SELECT statements.
+	            SET NOCOUNT ON;
+
+                -- Insert statements for procedure here
+	            select * from Students s 
+	
+	            select s.*,q.QuestionId,q.questionText,a.answerText,g.grade
+	            from questions q inner join Answers a on q.questionId = a.questionid
+	            inner join grades g on g.questionId = q.questionId 
+	            inner join students s on s.studentId = g.studentId
+                order by s.StudentId asc
+            END
+            ";
+
+            try
+            {
+                var cmd = con.CreateCommand();
+                cmd.CommandText = storedProc2;
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch(Exception e)
+            {
+            }
+            finally
+            {
+                con.Close();
+
             }
         }
     }
