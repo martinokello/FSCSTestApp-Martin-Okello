@@ -13,6 +13,7 @@ namespace RepositoryServices.Services
     {
         private QuestionRepository _questionRepository;
         private GradeRepository _gradeRepository;
+        private AnswerRepository _answerRepository;
 
         public QuestionRepositoryServices()
         {
@@ -23,6 +24,7 @@ namespace RepositoryServices.Services
         {
             _questionRepository = new QuestionRepository(unitOfWork);
             _gradeRepository = new GradeRepository(unitOfWork);
+            _answerRepository = new AnswerRepository(unitOfWork);
         }
 
         public virtual IEnumerable<Question> GetAllFaqQuestions()
@@ -39,11 +41,28 @@ namespace RepositoryServices.Services
         {
             return _questionRepository.GetAllStudentGradePerQuestionAnswers();
         }
+
+        public Question GetQuestionById(int questionId)
+        {
+            return _questionRepository.GetById(questionId);
+        }
         public int AddQuestion(Question question)
         {
             return _questionRepository.Add(question);
         }
 
+        public bool UpdateAnswer(Answer answer)
+        {
+            return _answerRepository.Update(answer);
+        }
+        public int AddAnswer(Answer answer)
+        {
+            return _answerRepository.Add(answer);
+        }
+        public bool UpdateQuestion(Question question)
+        {
+            return _questionRepository.Update(question);
+        }
         public int AddGrade(Grades grade)
         {
             return _gradeRepository.Add(grade);

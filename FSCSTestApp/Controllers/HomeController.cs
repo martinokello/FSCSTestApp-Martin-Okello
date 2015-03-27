@@ -99,7 +99,30 @@ namespace FSCSTestApp.Controllers
                 foreach (var grade in item.Grades)
                 {
                     grade.StudentId = studentId;
-                    _questionRepositoryServices.AddGrade(grade);
+                    var question = _questionRepositoryServices.GetQuestionById(grade.QuestionId);
+                    if (question == null)
+                    {
+                        question = new Question();
+
+                        var questionId = _questionRepositoryServices.AddQuestion(question);
+                        grade.Question = question;
+                        grade.QuestionId = questionId;
+                        grade.Student = item.Student;
+                        _questionRepositoryServices.AddGrade(grade);
+                        question.QuestionText = "Question " + questionId;
+                        var answer = new Answer {QuestionId = questionId, Question = question};
+                        var answerId = _questionRepositoryServices.AddAnswer(answer);
+                        answer.AnswerText = "Answer " + answerId;
+                        _questionRepositoryServices.UpdateAnswer(answer);
+                        _questionRepositoryServices.UpdateQuestion(question);
+                    }
+                    else
+                    {
+                        grade.Question = question;
+                        grade.QuestionId = question.QuestionId;
+                        grade.Student = item.Student;
+                        _questionRepositoryServices.AddGrade(grade); 
+                    }
                 }
 
 
