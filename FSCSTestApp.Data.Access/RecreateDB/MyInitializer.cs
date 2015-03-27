@@ -9,7 +9,7 @@ using FSCSTestApp.Data.Access.EntityModel;
 
 namespace FSCSTestApp.Data.Access.RecreateDB
 {
-    public class MyInitializer : DropCreateDatabaseIfModelChanges<FAQEntityContext>
+    public class MyInitializer : DropCreateDatabaseAlways<FAQEntityContext>
     {
         protected override void Seed(FAQEntityContext context)
         {
@@ -166,10 +166,10 @@ namespace FSCSTestApp.Data.Access.RecreateDB
                 -- Insert statements for procedure here
 	            select * from Students s 
 	
-	            select s.*,q.QuestionId,q.questionText,a.answerText,g.grade
+	            select distinct  s.*,q.QuestionId,q.questionText,g.grade,g.gradeId
 	            from questions q inner join Answers a on q.questionId = a.questionid
 	            inner join grades g on g.questionId = q.questionId 
-	            inner join students s on s.studentId = g.studentId
+                inner join students s on s.studentId = g.studentId
                 order by s.StudentId asc
             END
             ";

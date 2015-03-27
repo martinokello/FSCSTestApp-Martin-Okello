@@ -52,6 +52,11 @@ namespace RepositoryServices.Services
         {
             return _StudentRepository.Delete(student.StudentId);
         }
+
+        public Student GetByStudentId(int studentId)
+        {
+            return _StudentRepository.GetById(studentId);
+        }
     }
 
     public interface IStudentRepositorySegregator

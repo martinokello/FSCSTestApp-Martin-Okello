@@ -17,6 +17,7 @@ namespace FSCSTestApp.Data.Access.EntityModel
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Grade { get; set; }
+        public int GradeId { get; set; }
     }
 
     public class Grades

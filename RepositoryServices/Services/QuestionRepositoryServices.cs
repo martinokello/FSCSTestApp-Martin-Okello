@@ -14,6 +14,7 @@ namespace RepositoryServices.Services
         private QuestionRepository _questionRepository;
         private GradeRepository _gradeRepository;
         private AnswerRepository _answerRepository;
+        private UIPageRepository _uiPageRepository;
 
         public QuestionRepositoryServices()
         {
@@ -25,6 +26,7 @@ namespace RepositoryServices.Services
             _questionRepository = new QuestionRepository(unitOfWork);
             _gradeRepository = new GradeRepository(unitOfWork);
             _answerRepository = new AnswerRepository(unitOfWork);
+            _uiPageRepository = new UIPageRepository(unitOfWork);
         }
 
         public virtual IEnumerable<Question> GetAllFaqQuestions()
@@ -42,6 +44,10 @@ namespace RepositoryServices.Services
             return _questionRepository.GetAllStudentGradePerQuestionAnswers();
         }
 
+        public UIPage GetPageById(int pageId)
+        {
+            return _uiPageRepository.GetById(pageId);
+        }
         public Question GetQuestionById(int questionId)
         {
             return _questionRepository.GetById(questionId);
@@ -51,6 +57,10 @@ namespace RepositoryServices.Services
             return _questionRepository.Add(question);
         }
 
+        public Grades GetGradeByName(string gradeName)
+        {
+            return _gradeRepository.GetGradeByName(gradeName);
+        }
         public bool UpdateAnswer(Answer answer)
         {
             return _answerRepository.Update(answer);
@@ -70,6 +80,15 @@ namespace RepositoryServices.Services
         public bool UpdateGrade(Grades grade)
         {
             return _gradeRepository.Update(grade);
+        }
+
+        public bool DeleteQuestion(Question question)
+        {
+            return _questionRepository.Delete(question.QuestionId);
+        }
+        public Grades GetGradeById(int gradeId)
+        {
+            return _gradeRepository.GetById(gradeId);
         }
         public bool DeleteGrade(Grades grade)
         {

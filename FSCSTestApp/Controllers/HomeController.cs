@@ -96,14 +96,15 @@ namespace FSCSTestApp.Controllers
             {
                 //deal with insert
                 int studentId = _studentRepositoryServices.AddStudent(item.Student);
+                var uiPage = _questionRepositoryServices.GetPageById(1);
+                var curQuestIndex = 0;
                 foreach (var grade in item.Grades)
                 {
                     grade.StudentId = studentId;
-                    var question = _questionRepositoryServices.GetQuestionById(grade.QuestionId);
+                    var question = _questionRepositoryServices.GetQuestionById(item.Grades[curQuestIndex].QuestionId);
                     if (question == null)
                     {
-                        question = new Question();
-
+                        question = new Question {PageId = uiPage.PageId, UIPage = uiPage};
                         var questionId = _questionRepositoryServices.AddQuestion(question);
                         grade.Question = question;
                         grade.QuestionId = questionId;
@@ -118,11 +119,20 @@ namespace FSCSTestApp.Controllers
                     }
                     else
                     {
+                        question.PageId = uiPage.PageId;
+                        question.UIPage = uiPage;
+
                         grade.Question = question;
                         grade.QuestionId = question.QuestionId;
                         grade.Student = item.Student;
-                        _questionRepositoryServices.AddGrade(grade); 
+                        _questionRepositoryServices.AddGrade(grade);
+                        var answer = new Answer { QuestionId = question.QuestionId, Question = question };
+                        var answerId = _questionRepositoryServices.AddAnswer(answer);
+                        answer.AnswerText = "Answer " + answerId;
+                        _questionRepositoryServices.UpdateAnswer(answer);
+                        _questionRepositoryServices.UpdateQuestion(question); 
                     }
+                    curQuestIndex++;
                 }
 
 
@@ -130,12 +140,18 @@ namespace FSCSTestApp.Controllers
             else if (form["Update"] != null)
             {
                 //deal with update
-                _studentRepositoryServices.UpdateStudent(item.Student);
+                var student = _studentRepositoryServices.GetByStudentId(item.Student.StudentId);
+                student.FirstName = item.Student.FirstName;
+                student.LastName = item.Student.LastName;
+
                 foreach (var grade in item.Grades)
                 {
-                    grade.StudentId = item.Student.StudentId;
-                    _questionRepositoryServices.UpdateGrade(grade);
+                    var grd = _questionRepositoryServices.GetGradeById(grade.GradeId);
+                    if (grd == null) continue;
+                    grd.Grade = grade.Grade;
+                    _questionRepositoryServices.UpdateGrade(grd);
                 }
+                _studentRepositoryServices.UpdateStudent(student);
             }
             else if (form["Delete"] != null)
             {
@@ -143,8 +159,12 @@ namespace FSCSTestApp.Controllers
                 _studentRepositoryServices.DeleteStudent(item.Student);
                 foreach (var grade in item.Grades)
                 {
-                    grade.StudentId = item.Student.StudentId;
-                    _questionRepositoryServices.DeleteGrade(grade);
+                    var grd = _questionRepositoryServices.GetGradeById(grade.GradeId);
+                    if (grd != null && grd.Question != null)
+                    {
+                        _questionRepositoryServices.DeleteQuestion(grd.Question);
+                        _questionRepositoryServices.DeleteGrade(grd);
+                    }
                 }
             }
             return RedirectToAction("StudentGradeForQuestions");
@@ -165,14 +185,14 @@ namespace FSCSTestApp.Controllers
                     {
                         student = new Student { StudentId = it.StudentId, FirstName = it.FirstName, LastName = it.LastName };
                         stGrades = new List<Grades>();
-                        stGrades.Add(new Grades { Grade = it.Grade, QuestionId = it.QuestionId, StudentId = it.StudentId, Student = student });
+                        stGrades.Add(new Grades { Grade = it.Grade, QuestionId = it.QuestionId, StudentId = it.StudentId, Student = student, GradeId = it.GradeId });
                         var item = new StudentsGradesViewModel { Student = student, Grades = stGrades };
                         model.Add(item);
                     }
                     else if (it.StudentId == stId)
                     {
                         student = new Student { StudentId = it.StudentId, FirstName = it.FirstName, LastName = it.LastName };
-                        stGrades.Add(new Grades { Grade = it.Grade, QuestionId = it.QuestionId, StudentId = it.StudentId, Student = student });
+                        stGrades.Add(new Grades { Grade = it.Grade, QuestionId = it.QuestionId, StudentId = it.StudentId, Student = student,GradeId = it.GradeId });
                     }
                 }
             }

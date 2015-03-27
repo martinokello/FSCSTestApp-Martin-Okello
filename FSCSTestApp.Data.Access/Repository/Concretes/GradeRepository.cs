@@ -25,6 +25,11 @@ namespace FSCSTestApp.Data.Access.Repository.Concretes
             return DBContextFactory.GetDbContextInstance().Grades.SingleOrDefault(p => p.GradeId == key);
         }
 
+        public Grades GetGradeByName(string gradeName)
+        {
+            gradeName = gradeName.ToUpper();
+            return DBContextFactory.GetDbContextInstance().Grades.SingleOrDefault(p => p.Grade == gradeName);
+        }
         public override bool Delete(int key)
         {
             try

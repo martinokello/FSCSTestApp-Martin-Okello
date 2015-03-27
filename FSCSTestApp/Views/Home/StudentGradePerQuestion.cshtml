@@ -45,7 +45,7 @@
                             <th>Grade</th></thead>
                             @for (var j = 0; j < modList[i].Grades.Count; j++)
                             {
-                                <tr><td>@Html.Hidden("item.Grades[" + j + "].StudentId") @Html.Hidden("item.Grades[" + j + "].GradeId") @Html.TextBox("item.Grades[" + j +"].QuestionId", modList[i].Grades[j].QuestionId)</td><td>@Html.TextBox("item.Grades[" + j + "].Grade", modList[i].Grades[j].Grade)</td></tr>
+                                <tr><td>@Html.Hidden("item.Grades[" + j + "].StudentId",modList[i].Grades[j].StudentId) @Html.Hidden("item.Grades[" + j + "].GradeId",modList[i].Grades[j].GradeId) @Html.TextBox("item.Grades[" + j +"].QuestionId", modList[i].Grades[j].QuestionId)</td><td>@Html.TextBox("item.Grades[" + j + "].Grade", modList[i].Grades[j].Grade)</td></tr>
                             }
                         </table>
                     </td>
