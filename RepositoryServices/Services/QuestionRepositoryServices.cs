@@ -44,6 +44,10 @@ namespace RepositoryServices.Services
             return _questionRepository.GetAllStudentGradePerQuestionAnswers();
         }
 
+        public Grades[] GetGradesByStudentId(int studentId)
+        {
+            return _gradeRepository.GetGradesByStudentId(studentId);
+        }
         public UIPage GetPageById(int pageId)
         {
             return _uiPageRepository.GetById(pageId);
@@ -57,7 +61,7 @@ namespace RepositoryServices.Services
             return _questionRepository.Add(question);
         }
 
-        public Grades GetGradeByName(string gradeName)
+        public Grades[] GetGradeByName(string gradeName)
         {
             return _gradeRepository.GetGradeByName(gradeName);
         }

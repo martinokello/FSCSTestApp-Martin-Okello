@@ -57,8 +57,6 @@ namespace FSCSTestApp.Data.Access.Repository.Concretes
                     entity.FirstName = instance.FirstName;
                 if (!string.IsNullOrEmpty(instance.LastName))
                     entity.LastName = instance.LastName;
-                if (instance.StudentId > 0)
-                    entity.StudentId = instance.StudentId;
                 _unitOfWork.SaveChanges();
                 return true;
             }

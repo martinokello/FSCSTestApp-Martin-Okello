@@ -109,6 +109,8 @@ namespace FSCSTestApp.Controllers
                         grade.Question = question;
                         grade.QuestionId = questionId;
                         grade.Student = item.Student;
+                        grade.StudentId = studentId;
+                        grade.Grade = grade.Grade;
                         _questionRepositoryServices.AddGrade(grade);
                         question.QuestionText = "Question " + questionId;
                         var answer = new Answer {QuestionId = questionId, Question = question};
@@ -122,10 +124,27 @@ namespace FSCSTestApp.Controllers
                         question.PageId = uiPage.PageId;
                         question.UIPage = uiPage;
 
-                        grade.Question = question;
-                        grade.QuestionId = question.QuestionId;
-                        grade.Student = item.Student;
-                        _questionRepositoryServices.AddGrade(grade);
+
+                        var grd =
+                            _questionRepositoryServices.GetGradesByStudentId(item.Student.StudentId)
+                                .SingleOrDefault(p => p.QuestionId == question.QuestionId);
+                        if (grd != null)
+                        {
+                            grd.Question = question;
+                            grd.QuestionId = question.QuestionId;
+                            grd.Student = item.Student;
+                            grd.StudentId = studentId;
+                            grd.Grade = grade.Grade;
+                            _questionRepositoryServices.UpdateGrade(grd);
+                        }
+                        else
+                        {
+                            grade.Question = question;
+                            grade.QuestionId = question.QuestionId;
+                            grade.Student = item.Student;
+                            grade.StudentId = item.Student.StudentId;
+                            _questionRepositoryServices.AddGrade(grade);
+                        }
                         var answer = new Answer { QuestionId = question.QuestionId, Question = question };
                         var answerId = _questionRepositoryServices.AddAnswer(answer);
                         answer.AnswerText = "Answer " + answerId;
@@ -141,16 +160,63 @@ namespace FSCSTestApp.Controllers
             {
                 //deal with update
                 var student = _studentRepositoryServices.GetByStudentId(item.Student.StudentId);
-                student.FirstName = item.Student.FirstName;
-                student.LastName = item.Student.LastName;
+                var uiPage = _questionRepositoryServices.GetPageById(1);
 
-                foreach (var grade in item.Grades)
+                if (student != null && student.FirstName.Equals(item.Student.FirstName, StringComparison.OrdinalIgnoreCase) &&
+                    student.LastName.Equals(item.Student.LastName, StringComparison.OrdinalIgnoreCase))
                 {
-                    var grd = _questionRepositoryServices.GetGradeById(grade.GradeId);
-                    if (grd == null) continue;
-                    grd.Grade = grade.Grade;
-                    _questionRepositoryServices.UpdateGrade(grd);
+                    var curQuestIndex = 0;
+                    foreach (var grade in item.Grades)
+                    {          
+                        var question = _questionRepositoryServices.GetQuestionById(item.Grades[curQuestIndex].QuestionId);
+                        if (question == null)
+                        {
+                            question = new Question {PageId = uiPage.PageId, UIPage = uiPage};
+                            var questionId = _questionRepositoryServices.AddQuestion(question);
+                            grade.Question = question;
+                            grade.QuestionId = questionId;
+                            grade.Student = student;
+                            grade.StudentId = student.StudentId;
+                            grade.Grade = grade.Grade;
+                            _questionRepositoryServices.AddGrade(grade);
+                            question.QuestionText = "Question " + questionId;
+                            var answer = new Answer {QuestionId = questionId, Question = question};
+                            var answerId = _questionRepositoryServices.AddAnswer(answer);
+                            answer.AnswerText = "Answer " + answerId;
+                            _questionRepositoryServices.UpdateAnswer(answer);
+                            _questionRepositoryServices.UpdateQuestion(question);
+                        }
+                        else
+                        {
+                            question.PageId = uiPage.PageId;                                        
+                            question.UIPage = uiPage;
+
+                            var grd =
+                                _questionRepositoryServices.GetGradesByStudentId(student.StudentId)
+                                    .SingleOrDefault(p => p.QuestionId == question.QuestionId);
+
+                            if (grd != null)
+                            {
+                                grd.Question = question;
+                                grd.QuestionId = question.QuestionId;
+                                grd.Student = student;
+                                grd.StudentId = student.StudentId;
+                                grd.Grade = grade.Grade;
+                                _questionRepositoryServices.UpdateGrade(grd);
+                            }
+                            else
+                            {
+                                grade.Question = question;
+                                grade.QuestionId = question.QuestionId;
+                                grade.Student = student;
+                                grade.StudentId = student.StudentId;
+                                _questionRepositoryServices.AddGrade(grade);
+                            }
+                        }
+                        curQuestIndex++;
+                    }
                 }
+
                 _studentRepositoryServices.UpdateStudent(student);
             }
             else if (form["Delete"] != null)

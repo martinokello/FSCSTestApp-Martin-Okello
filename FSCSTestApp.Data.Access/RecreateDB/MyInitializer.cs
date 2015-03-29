@@ -166,7 +166,7 @@ namespace FSCSTestApp.Data.Access.RecreateDB
                 -- Insert statements for procedure here
 	            select * from Students s 
 	
-	            select distinct  s.*,q.QuestionId,q.questionText,g.grade,g.gradeId
+	            select distinct  s.*,q.QuestionId,q.questionText,g.grade
 	            from questions q inner join Answers a on q.questionId = a.questionid
 	            inner join grades g on g.questionId = q.questionId 
                 inner join students s on s.studentId = g.studentId
