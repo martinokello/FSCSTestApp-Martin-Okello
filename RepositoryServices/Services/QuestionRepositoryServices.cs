@@ -14,6 +14,7 @@ namespace RepositoryServices.Services
         private QuestionRepository _questionRepository;
         private GradeRepository _gradeRepository;
         private AnswerRepository _answerRepository;
+        private StudentRepository _studentRepositoryRepository;
         private UIPageRepository _uiPageRepository;
 
         public QuestionRepositoryServices()
@@ -23,6 +24,7 @@ namespace RepositoryServices.Services
 
         public QuestionRepositoryServices(IUnitOfWork unitOfWork)
         {
+            _studentRepositoryRepository = new StudentRepository(unitOfWork);
             _questionRepository = new QuestionRepository(unitOfWork);
             _gradeRepository = new GradeRepository(unitOfWork);
             _answerRepository = new AnswerRepository(unitOfWork);
@@ -68,6 +70,23 @@ namespace RepositoryServices.Services
         public bool UpdateAnswer(Answer answer)
         {
             return _answerRepository.Update(answer);
+        }
+
+        public Answer GetAnswerByStudentAndQuestionId(int questionId, int studentId)
+        {
+            var question = _questionRepository.GetById(questionId);
+            if (question != null)
+            {
+                var grade = _gradeRepository.GetGradesByStudentId(studentId).Where(p => p.QuestionId == questionId);
+
+                if (grade.Any())
+                {
+                    var grd = grade.ToList()[0];
+                    return _answerRepository.GetById(grd.GradeId);
+                }
+                else return null;
+            }
+            else return null;
         }
         public int AddAnswer(Answer answer)
         {

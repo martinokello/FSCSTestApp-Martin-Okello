@@ -145,10 +145,14 @@ namespace FSCSTestApp.Controllers
                             grade.StudentId = item.Student.StudentId;
                             _questionRepositoryServices.AddGrade(grade);
                         }
-                        var answer = new Answer { QuestionId = question.QuestionId, Question = question };
-                        var answerId = _questionRepositoryServices.AddAnswer(answer);
-                        answer.AnswerText = "Answer " + answerId;
-                        _questionRepositoryServices.UpdateAnswer(answer);
+                        var answer = _questionRepositoryServices.GetAnswerByStudentAndQuestionId(question.QuestionId,studentId);
+                        if (answer == null)
+                        {
+                            answer = new Answer {QuestionId = question.QuestionId, Question = question};
+                            var answerId = _questionRepositoryServices.AddAnswer(answer);
+                            answer.AnswerText = "Answer " + answerId;
+                            _questionRepositoryServices.UpdateAnswer(answer);
+                        }
                         _questionRepositoryServices.UpdateQuestion(question); 
                     }
                     curQuestIndex++;
@@ -211,6 +215,14 @@ namespace FSCSTestApp.Controllers
                                 grade.Student = student;
                                 grade.StudentId = student.StudentId;
                                 _questionRepositoryServices.AddGrade(grade);
+                            }
+                            var answer = _questionRepositoryServices.GetAnswerByStudentAndQuestionId(question.QuestionId, student.StudentId);
+                            if (answer == null)
+                            {
+                                answer = new Answer { QuestionId = question.QuestionId, Question = question };
+                                var answerId = _questionRepositoryServices.AddAnswer(answer);
+                                answer.AnswerText = "Answer " + answerId;
+                                _questionRepositoryServices.UpdateAnswer(answer);
                             }
                         }
                         curQuestIndex++;
